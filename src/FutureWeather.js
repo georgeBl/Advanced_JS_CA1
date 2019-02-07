@@ -1,7 +1,6 @@
 //importing components
 import React, {Component} from 'react';
 import axios from 'axios';
-import WeatherResult from './WeatherResult';
 import './styles/App.css';
 import Graph from './Graph.js';
 import cityList from './constants/city.list.json';
@@ -34,11 +33,31 @@ class FutureWeather extends Component{
   }
 
   handleSubmit(event){
+    if(this.state.labelClass === "text-success") {
+      axios.get(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${this.state.cityInput}&APPID=${apiKey}`)
+      .then(response=>{
+          this.setState({weather:response.data, searchClicked:true, showErrorLabel:false });
 
-    axios.get(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${this.state.cityInput}&APPID=${apiKey}`)
-    .then(response=>{
-      if(this.state.labelClass === "text-success") this.setState({weather:response.data, searchClicked:true, showErrorLabel:false });
-    });
+      }).catch((error) => {
+          // Error handling.. left empty nothing to do with it
+          if (error.response) {
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+              // console.log(error.response.data);
+              // console.log(error.response.status);
+              // console.log(error.response.headers);
+          } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+          } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log('Error', error.message);
+          }
+          console.log(error.config);
+        });
+      }
     event.preventDefault();
   }
 
@@ -46,12 +65,12 @@ class FutureWeather extends Component{
     return(
       <div className="row">
         <div className="col form-container">
-          <form className="form-horizontal" role="form">
+          <form className="form-horizontal" >
               <input id="cityinput" type="text" placeholder="City..." autoComplete="off" value ={this.state.cityInput} onChange={this.handleChange} />
               <input type="submit" value="Search" onClick={this.handleSubmit} />
               {this.state.showErrorLabel ? <small id="emailHelp" className={`form-text ${this.state.labelClass}`}>{this.state.inputMessage}</small> : null }
           </form>
-          {this.state.searchClicked ? <Graph weather={this.state.weather.list}/> : null}
+          {this.state.searchClicked ? <Graph weather={this.state.weather}/> : null}
         </div>
       </div>
   )};

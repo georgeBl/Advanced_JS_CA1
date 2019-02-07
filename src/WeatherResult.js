@@ -1,5 +1,4 @@
 import React from 'react';
-import countryList from './countryList.json';
 
 const KELVIN = 273.15;
 

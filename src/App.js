@@ -35,15 +35,7 @@ class App extends Component{
   }
 }
 
-const Home = () =>
-                <div>
-                  <h1> We find the weather for you! Right now or for the next few days! Check it out! </h1>
-                <form className="">
-                  <input id="cityinput"type="text" placeholder="City..." autoComplete="off" value="" onChange=""/>
-                  <input type="submit" value="Search" onClick=""/>
-                </form>
-
-                </div>;
+const Home = () =><div>Home</div> // will have a search as well
 const Current = () => <CurrentWeather />
 const Future = () => <FutureWeather />
 

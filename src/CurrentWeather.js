@@ -3,7 +3,6 @@ import React from 'react';
 import "bulma/css/bulma.css";
 import axios from 'axios';
 import WeatherResult from './WeatherResult';
-import AutoComplete from  'react-autocomplete';
 import cityList from './constants/city.list.json';
 import './styles/App.css'
 import default_image from './default_img.jpg';
@@ -47,29 +46,22 @@ class CurrentWeather extends React.Component{
 
  }
  handleSubmit(event){
+  if(this.state.labelClass === "text-success") {
    axios.get(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.cityInput}&APPID=${apiKey}`)
    .then(response=>{
-     console.log(response);
-     if(this.state.labelClass==="text-success"){
-       this.setState({
-         weather: response.data,
-         searchClicked:true,
-         showErrorLabel:false
-       });
-       this.setState({  backgroundImage: "https://source.unsplash.com/1600x900/?" + this.state.weather.weather[0].main});
-     }
-
-
+     this.setState({
+       weather: response.data,
+       searchClicked:true,
+       showErrorLabel:false
+      });
+     this.setState({  backgroundImage: "https://source.unsplash.com/1600x900/?" + this.state.weather.weather[0].main});
    })
    .catch(error=>{console.log(error);});
-
+ }
    event.preventDefault();
-
  }
 
-
  render(){
-
    return(
      <div className="row">
        <div className="col-xs-5 title-container" style={{backgroundImage: `url(${this.state.backgroundImage})`}}>
