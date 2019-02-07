@@ -16,7 +16,7 @@ body {
 
 .main {
   height: 90vh;
-  background: #fff;
+  background: #2c3e50;
   box-shadow: 0px 13px 40px -13px rgba(0,0,0,0.75);
   width: 80%;
   margin: 0 auto;
@@ -24,8 +24,8 @@ body {
 
 .title-container {
 
-  height: 90vh;
-  /* background: url("img/bg.jpg") center center no-repeat; */
+  height: 85vh;
+  background: center center no-repeat;
   background-size: cover;
   background-color: lightgrey;
   display: flex;
@@ -53,13 +53,13 @@ body {
 
 .form-container {
   background-color: #2c3e50;
-  height: 90vh;
+  height: 85vh;
   padding-top: 100px;
   padding-left: 50px;
   width:60%;
 }
 
-input[type="text"] {
+input[type="text"], .text-input{
   background-color: transparent;
   border: 0;
   border-bottom: solid 1px #f16051;
@@ -139,9 +139,56 @@ input[type="submit"]:active {
 
 .nav-link{
   text-decoration: none;
-  color: black;
+  color: white;
   font-size:20px;
+  border-bottom:1px solid lightgrey;
 }
 .nav-link:hover{
-  color:black;
+  color:white;
+}
+
+.nav-container{
+  background-color:#2c3e50;
+}
+
+.h-container{
+  background-color:#2c3e50;
+}
+
+
+/* Style the lines by removing the fill and applying a stroke */
+.line {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 3;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+    fill: #ffab00;
+    stroke: #fff;
+}
+
+.focus circle {
+fill: none;
+stroke: steelblue;
+}
+
+.axis{
+  fill: none;
+  shape-rendering:crispEdges;
+  stroke-width: 1;
+  stroke: white;
+}
+
+
+.chart-container {
+  position: relative;
+  padding-bottom:10px;
+  height:80%
 }

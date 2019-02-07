@@ -1,5 +1,4 @@
-{
-  "countries": [{
+[{
     "country": {
       "country_id": "AD",
       "country_name": "ANDORRA"
@@ -1229,5 +1228,5 @@
       "country_id": "IN",
       "country_name": "INDIA"
     }
-  }]
-}
+  }
+]

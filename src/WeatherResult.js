@@ -1,7 +1,7 @@
 import React from 'react';
 import countryList from './countryList.json';
 
-const kelvin = 273.15;
+const KELVIN = 273.15;
 
 
 
@@ -14,7 +14,7 @@ const WeatherResult = props => (
 	 }
 	 {
 	 	props.temperature && <p className="weather__key"> Temperature:
-	 		<span className="weather__value"> { (props.temperature - kelvin).toFixed(1) } &#176;C	</span>
+	 		<span className="weather__value"> { (props.temperature - KELVIN).toFixed(1) } &#176;C	</span>
 	 	</p>
 	 }
 	 {
@@ -38,5 +38,4 @@ const WeatherResult = props => (
 	</div>
 );
 
-console.log(WeatherResult.props);
 export default WeatherResult;
