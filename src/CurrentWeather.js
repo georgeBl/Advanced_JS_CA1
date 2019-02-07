@@ -47,7 +47,7 @@ class CurrentWeather extends React.Component{
 
  }
  handleSubmit(event){
-   axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.cityInput}&APPID=${apiKey}`)
+   axios.get(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.cityInput}&APPID=${apiKey}`)
    .then(response=>{
      console.log(response);
      if(this.state.labelClass==="text-success"){
@@ -69,7 +69,7 @@ class CurrentWeather extends React.Component{
 
 
  render(){
-   
+
    return(
      <div className="row">
        <div className="col-xs-5 title-container" style={{backgroundImage: `url(${this.state.backgroundImage})`}}>

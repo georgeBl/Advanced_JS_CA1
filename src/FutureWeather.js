@@ -35,7 +35,7 @@ class FutureWeather extends Component{
 
   handleSubmit(event){
 
-    axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${this.state.cityInput}&APPID=${apiKey}`)
+    axios.get(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${this.state.cityInput}&APPID=${apiKey}`)
     .then(response=>{
       if(this.state.labelClass === "text-success") this.setState({weather:response.data, searchClicked:true, showErrorLabel:false });
     });
