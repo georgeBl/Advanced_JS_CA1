@@ -192,3 +192,20 @@ stroke: steelblue;
   padding-bottom:10px;
   height:80%
 }
+
+.link-clicked{
+  /* background-image: linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0)); */
+  border-bottom:1px solid #f16051;
+}
+
+.home-text{
+  color:white;
+  text-indent: center;
+  margin-top:25vh;
+  margin-bottom:10vh;
+}
+
+.range-slider{
+  margin-left:10px;
+  width:150px;
+}

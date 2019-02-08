@@ -1,9 +1,9 @@
 //importing components
 import React, {Component} from 'react';
 import axios from 'axios';
-import './styles/App.css';
+// import './styles/App.css';
 import Graph from './Graph.js';
-import cityList from './constants/city.list.json';
+import cityList from '../../constants/city.list.json';
 
 
 const apiKey = '266eaf36b387e650580d9c458d816e24';
@@ -66,7 +66,7 @@ class FutureWeather extends Component{
       <div className="row">
         <div className="col form-container">
           <form className="form-horizontal" >
-              <input id="cityinput" type="text" placeholder="City..." autoComplete="off" value ={this.state.cityInput} onChange={this.handleChange} />
+              <input id="cityinput" type="text" placeholder="City..." autoComplete="off" value={this.state.cityInput} onChange={this.handleChange} />
               <input type="submit" value="Search" onClick={this.handleSubmit} />
               {this.state.showErrorLabel ? <small id="emailHelp" className={`form-text ${this.state.labelClass}`}>{this.state.inputMessage}</small> : null }
           </form>

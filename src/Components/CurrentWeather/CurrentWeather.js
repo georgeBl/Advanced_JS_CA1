@@ -1,22 +1,21 @@
 //importing components
-import React from 'react';
+import React,{Component} from 'react';
 import "bulma/css/bulma.css";
 import axios from 'axios';
 import WeatherResult from './WeatherResult';
-import cityList from './constants/city.list.json';
-import './styles/App.css'
-import default_image from './default_img.jpg';
+import cityList from '../../constants/city.list.json';
+// import './styles/App.css'
+import default_image from '../../default_img.jpg';
 
 
 const apiKey = '266eaf36b387e650580d9c458d816e24';
-class CurrentWeather extends React.Component{
+class CurrentWeather extends Component{
   constructor(props){
     super(props);
-
     this.state = {
       weather: undefined,
-      cityInput: "",
       searchClicked: false,
+      cityInput:"",
       backgroundImage: default_image,
       visible: false,
       showErrorLabel:false,
@@ -43,7 +42,6 @@ class CurrentWeather extends React.Component{
  }
 
  componentDidMount(){
-
  }
  handleSubmit(event){
   if(this.state.labelClass === "text-success") {
@@ -68,7 +66,7 @@ class CurrentWeather extends React.Component{
        </div>
        <div className="col-xs-7 form-container">
          <form className="">
-           <input id="cityinput"type="text" placeholder="City..." autoComplete="off" value ={this.state.cityInput} onChange={this.handleChange} />
+           <input id="cityinput"type="text" placeholder="City..." autoComplete="off" onChange={this.handleChange} />
            <input type="submit" value="Search" onClick={this.handleSubmit} />
            {this.state.showErrorLabel ? <small id="emailHelp" className={`form-text ${this.state.labelClass}`}>{this.state.inputMessage}</small> : null }
          </form>
