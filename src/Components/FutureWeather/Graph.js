@@ -32,7 +32,7 @@ class Graph extends Component{
     this.setState({barType:event.target.value})
     this.buildChart(this.props.weather.list);
   }
-  buildChart(weatherList`){
+  buildChart(weatherList){
     const raw_data  = weatherList.map(w =>{
       // const weatherDate =  + new Date(w.dt*1000).getDate() ;
       const weatherDate = moment(new Date(w.dt*1000)).format("MMM DD HH:mm")

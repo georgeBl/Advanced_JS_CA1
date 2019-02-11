@@ -1,6 +1,5 @@
 //importing components
 import React,{Component} from 'react';
-import "bulma/css/bulma.css";
 import axios from 'axios';
 import WeatherResult from './WeatherResult';
 import cityList from '../../constants/city.list.json';
